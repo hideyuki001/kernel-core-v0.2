@@ -118,8 +118,9 @@ integration/with_ucos.md
 ```
 Typical stack:
 
+```text
 Kernel v0.2  →  UCOS v1.8.1  →  Output system
-
+``` 
 
 ## Design philosophy
 
