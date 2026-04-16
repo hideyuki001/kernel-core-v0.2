@@ -97,11 +97,11 @@ It makes certain classes of wrong answers structurally impossible.
 ## Roadmap (v0.3 preview)
 
 A friction observation layer is planned:
-
+```
 ・records hesitation / forced_choice / wrong_but_passed
 ・read-only observer (no control over Kernel or UCOS)
 ・surfaces human instability zones
-
+```
 See:
 
 roadmap/v0.3_friction_layer_preview.md
