@@ -64,6 +64,24 @@ Downstream system (e.g. UCOS)
 ```
 The Kernel operates before interpretation and ensures that only structurally valid inputs proceed.
 
+
+## What problem it solves
+
+Without Kernel Core:
+
+- same input → different decisions
+- annotators guess under uncertainty
+- hallucinated outputs pass as valid
+- decisions are not traceable
+
+With Kernel Core:
+
+- invalid judgment structures are blocked
+- uncertainty must be explicitly preserved
+- hallucination is structurally prevented
+- all decisions remain traceable
+
+
 ## Core invariants
 ```
 ・Exactly one primary cause
