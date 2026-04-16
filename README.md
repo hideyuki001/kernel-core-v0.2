@@ -128,6 +128,19 @@ Kernel Core does something different:
 
 It makes certain classes of wrong answers structurally impossible.
 
+## Why this matters
+
+Most AI systems focus on improving outputs.
+
+Kernel Core focuses on something else:
+
+> making certain classes of failure structurally impossible
+
+This is critical in real-world systems where:
+- decisions must be reproducible
+- multiple annotators must align
+- incorrect outputs carry operational risk
+
 ## Roadmap (v0.3 preview)
 
 A friction observation layer is planned:
