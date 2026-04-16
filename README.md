@@ -152,9 +152,9 @@ A friction observation layer is planned:
 - surfaces human instability zones
   
 See:
-
+```
 roadmap/v0.3_friction_layer_preview.md
-
+```
 
 ## License
 
