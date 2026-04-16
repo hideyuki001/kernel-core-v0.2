@@ -128,8 +128,7 @@ Most systems try to improve answers.
 
 Kernel Core does something different:
 
-It makes certain classes of wrong answers structurally impossible.
-
+> It makes certain classes of wrong answers **structurally impossible**.
 
 ## Why this matters
 
