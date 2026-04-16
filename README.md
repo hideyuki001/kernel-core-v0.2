@@ -64,7 +64,6 @@ Downstream system (e.g. UCOS)
 ```
 The Kernel operates before interpretation and ensures that only structurally valid inputs proceed.
 
-
 ## What problem it solves
 
 Without Kernel Core:
@@ -89,12 +88,13 @@ With Kernel Core:
 - Uncertainty must remain explicit
 - Traceability must be verifiable
 - No boundary violation (Kernel does not decide)
-  
+
 These invariants are enforced deterministically.
 
 
 ## Repository structure
-```
+
+```text
 spec/                      # formal definitions (schema, contracts, principles)
 reference_implementation/  # kernel implementation (v0.2)
 tests/                     # invariant validation tests
@@ -102,7 +102,6 @@ examples/                  # minimal usage examples
 integration/               # integration with UCOS
 roadmap/                   # future extensions (v0.3 preview)
 ```
-
 
 ## Example
 
@@ -112,8 +111,6 @@ examples/example_01_hallucination_block.md
 
 
 ## Integration
-
-Kernel Core is designed to integrate with higher-level systems.
 
 Example:
 
