@@ -61,7 +61,6 @@ Kernel Core v0.2
 JudgmentEvent (validated)
  ↓
 Downstream system (e.g. UCOS)
-
 ```
 The Kernel operates **before interpretation** and ensures that only structurally valid inputs proceed.
 
