@@ -13,6 +13,22 @@ It enforces non-negotiable invariants before any decision is made.
 
 ---
 
+## Use cases
+
+Kernel Core is designed for systems where judgment reliability matters:
+
+- ASR quality control pipelines
+- LLM evaluation / annotation workflows
+- Translation QA systems
+- Human-in-the-loop AI validation
+
+It is especially useful in environments where:
+- multiple annotators produce inconsistent decisions
+- hallucination or forced resolution must be prevented
+- traceability and reproducibility are required
+
+---
+
 ## What it guarantees
 
 * **No hallucination**
