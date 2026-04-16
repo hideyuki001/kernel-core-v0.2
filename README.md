@@ -59,12 +59,14 @@ The Kernel operates before interpretation and ensures that only structurally val
 These invariants are enforced deterministically.
 
 ## Repository structure
+```
 spec/                      # formal definitions (schema, contracts, principles)
 reference_implementation/  # kernel implementation (v0.2)
 tests/                     # invariant validation tests
 examples/                  # minimal usage examples
 integration/               # integration with UCOS
 roadmap/                   # future extensions (v0.3 preview)
+```
 
 ## Example
 
