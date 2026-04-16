@@ -83,13 +83,13 @@ With Kernel Core:
 
 
 ## Core invariants
-```
-・Exactly one primary cause
-・No unsupported inference
-・Uncertainty must remain explicit
-・Traceability must be verifiable
-・No boundary violation (Kernel does not decide)
-```
+
+- Exactly one primary cause
+- No unsupported inference
+- Uncertainty must remain explicit
+- Traceability must be verifiable
+- No boundary violation (Kernel does not decide)
+  
 These invariants are enforced deterministically.
 
 
