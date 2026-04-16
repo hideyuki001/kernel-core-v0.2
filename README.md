@@ -92,6 +92,7 @@ With Kernel Core:
 ```
 These invariants are enforced deterministically.
 
+
 ## Repository structure
 ```
 spec/                      # formal definitions (schema, contracts, principles)
@@ -102,11 +103,13 @@ integration/               # integration with UCOS
 roadmap/                   # future extensions (v0.3 preview)
 ```
 
+
 ## Example
 
 See:
 
 examples/example_01_hallucination_block.md
+
 
 ## Integration
 
@@ -120,6 +123,7 @@ Typical stack:
 
 Kernel v0.2  →  UCOS v1.8.1  →  Output system
 
+
 ## Design philosophy
 
 Most systems try to improve answers.
@@ -127,6 +131,7 @@ Most systems try to improve answers.
 Kernel Core does something different:
 
 It makes certain classes of wrong answers structurally impossible.
+
 
 ## Why this matters
 
@@ -141,6 +146,7 @@ This is critical in real-world systems where:
 - multiple annotators must align
 - incorrect outputs carry operational risk
 
+
 ## Roadmap (v0.3 preview)
 
 A friction observation layer is planned:
@@ -152,6 +158,7 @@ A friction observation layer is planned:
 See:
 
 roadmap/v0.3_friction_layer_preview.md
+
 
 ## License
 
