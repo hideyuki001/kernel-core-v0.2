@@ -106,16 +106,16 @@ roadmap/                   # future extensions (v0.3 preview)
 ## Example
 
 See:
-
+```
 examples/example_01_hallucination_block.md
-
+```
 
 ## Integration
 
 Example:
-
+```
 integration/with_ucos.md
-
+```
 Typical stack:
 
 Kernel v0.2  →  UCOS v1.8.1  →  Output system
@@ -147,11 +147,10 @@ This is critical in real-world systems where:
 ## Roadmap (v0.3 preview)
 
 A friction observation layer is planned:
-```
-・records hesitation / forced_choice / wrong_but_passed
-・read-only observer (no control over Kernel or UCOS)
-・surfaces human instability zones
-```
+- records hesitation / forced_choice / wrong_but_passed
+- read-only observer (no control over Kernel or UCOS)
+- surfaces human instability zones
+  
 See:
 
 roadmap/v0.3_friction_layer_preview.md
