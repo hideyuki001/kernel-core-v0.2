@@ -49,12 +49,13 @@ Downstream system (e.g. UCOS)
 The Kernel operates before interpretation and ensures that only structurally valid inputs proceed.
 
 ## Core invariants
+```
 ・Exactly one primary cause
 ・No unsupported inference
 ・Uncertainty must remain explicit
 ・Traceability must be verifiable
 ・No boundary violation (Kernel does not decide)
-
+```
 These invariants are enforced deterministically.
 
 ## Repository structure
