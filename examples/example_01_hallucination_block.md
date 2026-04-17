@@ -37,6 +37,9 @@ Kernel Core must reject this.
 ```
 
 ## Invalid Attempted Judgment
+
+The following interpretation introduces a claim not supported by evidence:
+
 ```json
 {
   "proposed_interpretation": "The device fails because of overheating.",
@@ -51,6 +54,8 @@ Kernel Core must reject this.
 ```
 
 ## Why This Must Be Rejected
+
+This introduces a causal claim that is not grounded in the available evidence.
 
 The judgment introduces a causal explanation:
 
@@ -69,6 +74,9 @@ Even if the interpretation sounds plausible,
 Kernel Core does not allow plausibility to replace evidence.
 
 ## Kernel Result
+
+The Kernel rejects the judgment due to invariant violation:
+
 ```json
 {
   "status": "rejected",
@@ -97,6 +105,7 @@ This is a structural validity failure.
 ## What Would Be Acceptable Instead
 
 A structurally valid interpretation would preserve uncertainty:
+
 ```json
 {
   "proposed_interpretation": "The device may fail under certain unspecified conditions.",
