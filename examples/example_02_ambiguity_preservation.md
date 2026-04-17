@@ -56,6 +56,8 @@ The following interpretation collapses ambiguity without evidence:
 
 ## Why This Must Be Rejected
 
+This violates evidence-bounded judgment by collapsing valid alternatives.
+
 The judgment selects a single interpretation where multiple interpretations are equally plausible.
 
 However, the input evidence indicates:
@@ -68,7 +70,7 @@ This is therefore a case of **forced resolution**.
 
 It collapses uncertainty without sufficient evidence.
 
-Kernel Core does not allow ambiguity to be resolved unless it is **evidence-supported**.
+Kernel Core does not allow ambiguity to be resolved unless it is **strictly evidence-supported**.
 
 ## Kernel Result
 
@@ -132,6 +134,8 @@ It enforces a single rule:
 
 In other words, ambiguity is not a problem to fix —  
 it is a condition to preserve.
+
+It enforces what is allowed to be concluded — not what appears most likely.
 
 ## Related Invariants
 
