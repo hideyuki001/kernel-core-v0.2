@@ -52,18 +52,19 @@ Kernel Core must reject this.
 
 The judgment introduces a causal explanation:
 
-"because of overheating"
+> "because of overheating"
 
 But the input evidence never mentions:
 
-overheating
-temperature
-thermal condition
-any explicit cause
+- overheating  
+- temperature  
+- thermal condition  
+- any explicit cause  
 
-This is therefore an unsupported inference.
+This is therefore an **unsupported inference**.
 
-Even if the interpretation sounds plausible, Kernel Core does not allow plausibility to replace evidence.
+Even if the interpretation sounds plausible,  
+Kernel Core does not allow plausibility to replace evidence.
 
 ## Kernel Result
 ```json
