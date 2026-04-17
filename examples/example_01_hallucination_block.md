@@ -32,7 +32,9 @@ Kernel Core must reject this.
     "No cause is explicitly stated"
   ]
 }
+
 ## Invalid Attempted Judgment
+```json
 {
   "proposed_interpretation": "The device fails because of overheating.",
   "confidence": "high",
