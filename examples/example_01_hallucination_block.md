@@ -55,13 +55,11 @@ The following interpretation introduces a claim not supported by evidence:
 
 ## Why This Must Be Rejected
 
-This introduces a causal claim that is not grounded in the available evidence.
-
-The judgment introduces a causal explanation:
+The judgment introduces a causal claim that is not grounded in the available evidence:
 
 > "because of overheating"
 
-But the input evidence never mentions:
+However, the input evidence does not mention:
 
 - overheating  
 - temperature  
@@ -129,9 +127,9 @@ It remains within the evidence boundary.
 
 ## Key Takeaway
 
-Kernel Core v0.2 does not ask whether an answer is useful, fluent, or likely.
+Kernel Core v0.2 does not evaluate whether an answer is useful, fluent, or likely.
 
-It asks:
+It enforces a single question:
 
 > Is this judgment structurally licensed by the evidence?
 
