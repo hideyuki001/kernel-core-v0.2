@@ -58,7 +58,7 @@ This introduces a specific conclusion without evidence.
 
 The judgment resolves uncertainty by selecting a cause:
 
-"network error"
+> "network error"
 
 However, the input evidence does not specify:
 
@@ -138,12 +138,19 @@ it is a constraint that must be preserved.
 
 It enforces what is allowed to be concluded — not what seems most plausible.
 
+```md
 ## Related Invariants
+
+- No unsupported inference  
+- Uncertainty must remain explicit  
+- Traceability must be verifiable  
 ```
-No unsupported inference
-Uncertainty must remain explicit
-Traceability must be verifiable
-Position in the stack
+
+---
+
+## Position in the stack
+
+```text
 Input
   ↓
 Kernel Core v0.2
