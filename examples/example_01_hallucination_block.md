@@ -13,7 +13,9 @@ The goal is to make a structurally invalid judgment **impossible to pass**.
 
 A system receives an input where the evidence is incomplete or ambiguous.
 
-A downstream component attempts to produce a confident interpretation that includes details **not present in the source**.
+A downstream component attempts to produce a **confident interpretation** that includes details **not present in the source**.
+
+This creates a structural violation.
 
 Kernel Core must reject this.
 
