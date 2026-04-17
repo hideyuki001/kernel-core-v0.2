@@ -78,9 +78,9 @@ Even if the interpretation sounds plausible, Kernel Core does not allow plausibi
   "downstream_action": "blocked_before_interpretation"
 }
 ```
-```json
-## Structural Explanation
 
+## Structural Explanation
+```json
 Kernel Core rejects this judgment because:
 
 A new fact was introduced without evidence
