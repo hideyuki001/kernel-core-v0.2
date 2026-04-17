@@ -47,7 +47,7 @@ Kernel Core must reject this.
   ]
 }
 ```
-```json
+
 ## Why This Must Be Rejected
 
 The judgment introduces a causal explanation:
@@ -64,9 +64,9 @@ any explicit cause
 This is therefore an unsupported inference.
 
 Even if the interpretation sounds plausible, Kernel Core does not allow plausibility to replace evidence.
-```
-```json
+
 ## Kernel Result
+```json
 {
   "status": "rejected",
   "reason": "unsupported_inference",
@@ -114,7 +114,7 @@ This version does not invent a cause.
 
 It remains within the evidence boundary.
 ```
-```json
+
 ## Key Takeaway
 
 Kernel Core v0.2 does not ask whether an answer is useful, fluent, or likely.
@@ -124,7 +124,7 @@ It asks:
 Is this judgment structurally licensed by the evidence?
 
 If not, it does not pass.
-
+```json
 Related Invariants
 No unsupported inference
 Uncertainty must remain explicit
@@ -139,3 +139,4 @@ Kernel Core v0.2
 JudgmentEvent: rejected
   ↓
 Downstream system does not proceed
+```
