@@ -13,6 +13,18 @@ It enforces non-negotiable invariants before any decision is made.
 
 ---
 
+## Core Principles
+
+Kernel Core enforces three structural principles:
+
+- Do not invent information  
+- Do not collapse ambiguity  
+- Do not resolve uncertainty without evidence  
+
+These principles define what a valid judgment structure must preserve.
+
+---
+
 ## Use cases
 
 Kernel Core is designed for systems where judgment reliability matters:
