@@ -120,9 +120,9 @@ roadmap/                   # future extensions (v0.3 preview)
 
 See:
 
-- examples/example_01_hallucination_block.md  
-- examples/example_02_ambiguity_preservation.md  
-- examples/example_03_forced_resolution_rejection.md  
+- [Example 01 — Hallucination Block](examples/example_01_hallucination_block.md)  
+- [Example 02 — Ambiguity Preservation](examples/example_02_ambiguity_preservation.md)  
+- [Example 03 — Forced Resolution Rejection](examples/example_03_forced_resolution_rejection.md)
 
 ## Integration
 
