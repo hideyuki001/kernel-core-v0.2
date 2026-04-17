@@ -32,7 +32,8 @@ Kernel Core must reject this.
     "No cause is explicitly stated"
   ]
 }
-```json
+```
+
 ## Invalid Attempted Judgment
 ```json
 {
