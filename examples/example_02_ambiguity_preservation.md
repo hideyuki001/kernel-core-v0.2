@@ -35,6 +35,7 @@ Kernel Core must reject this.
   ]
 }
 ```
+
 ---
 
 ## Invalid Attempted Judgment
