@@ -80,16 +80,16 @@ Even if the interpretation sounds plausible, Kernel Core does not allow plausibi
 ```
 
 ## Structural Explanation
-```json
+
 Kernel Core rejects this judgment because:
 
-- A new fact was introduced without evidence
-- The claim cannot be traced back to the input
-- Certainty was increased beyond what the source allows
+- A new fact was introduced without evidence  
+- The claim cannot be traced back to the input  
+- Certainty was increased beyond what the source allows  
 
-This is not a style error.
+This is not a style error.  
 This is a structural validity failure.
-```
+
 
 ## What Would Be Acceptable Instead
 
@@ -109,11 +109,11 @@ A structurally valid interpretation would preserve uncertainty:
     }
   ]
 }
-
+```
 This version does not invent a cause.
 
 It remains within the evidence boundary.
-```
+
 
 ## Key Takeaway
 
@@ -121,15 +121,23 @@ Kernel Core v0.2 does not ask whether an answer is useful, fluent, or likely.
 
 It asks:
 
-Is this judgment structurally licensed by the evidence?
+> Is this judgment structurally licensed by the evidence?
 
 If not, it does not pass.
-```json
-Related Invariants
-No unsupported inference
-Uncertainty must remain explicit
-Traceability must be verifiable
-Position in the stack
+
+---
+
+## Related Invariants
+
+- No unsupported inference  
+- Uncertainty must remain explicit  
+- Traceability must be verifiable  
+
+---
+
+## Position in the stack
+
+```text
 Input
   ↓
 Kernel Core v0.2
