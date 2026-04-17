@@ -47,7 +47,8 @@ Kernel Core must reject this.
   ]
 }
 ```
-Why This Must Be Rejected
+```json
+## Why This Must Be Rejected
 
 The judgment introduces a causal explanation:
 
@@ -64,8 +65,8 @@ This is therefore an unsupported inference.
 
 Even if the interpretation sounds plausible, Kernel Core does not allow plausibility to replace evidence.
 ```
-
-Kernel Result
+```json
+## Kernel Result
 {
   "status": "rejected",
   "reason": "unsupported_inference",
@@ -76,7 +77,9 @@ Kernel Result
   "primary_cause": "hallucination_risk",
   "downstream_action": "blocked_before_interpretation"
 }
-Structural Explanation
+```
+```json
+## Structural Explanation
 
 Kernel Core rejects this judgment because:
 
@@ -86,11 +89,12 @@ Certainty was increased beyond what the source allows
 
 This is not a style error.
 This is a structural validity failure.
+```
 
-What Would Be Acceptable Instead
+## What Would Be Acceptable Instead
 
 A structurally valid interpretation would preserve uncertainty:
-
+```json
 {
   "proposed_interpretation": "The device may fail under certain unspecified conditions.",
   "confidence": "bounded",
@@ -109,8 +113,9 @@ A structurally valid interpretation would preserve uncertainty:
 This version does not invent a cause.
 
 It remains within the evidence boundary.
-
-Key Takeaway
+```
+```json
+## Key Takeaway
 
 Kernel Core v0.2 does not ask whether an answer is useful, fluent, or likely.
 
