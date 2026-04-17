@@ -46,6 +46,7 @@ Kernel Core must reject this.
     }
   ]
 }
+```
 Why This Must Be Rejected
 
 The judgment introduces a causal explanation:
@@ -62,6 +63,7 @@ any explicit cause
 This is therefore an unsupported inference.
 
 Even if the interpretation sounds plausible, Kernel Core does not allow plausibility to replace evidence.
+```
 
 Kernel Result
 {
