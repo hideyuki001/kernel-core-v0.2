@@ -117,7 +117,7 @@ A structurally valid interpretation preserves ambiguity:
     }
   ]
 }
-
+```
 This version does not force a single interpretation.
 
 It preserves the structure of uncertainty.
