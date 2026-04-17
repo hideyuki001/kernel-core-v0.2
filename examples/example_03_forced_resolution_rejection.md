@@ -138,13 +138,12 @@ it is a constraint that must be preserved.
 
 It enforces what is allowed to be concluded — not what seems most plausible.
 
-```md
+
 ## Related Invariants
 
 - No unsupported inference  
 - Uncertainty must remain explicit  
 - Traceability must be verifiable  
-```
 
 ---
 
