@@ -116,12 +116,13 @@ integration/               # integration with UCOS
 roadmap/                   # future extensions (v0.3 preview)
 ```
 
-## Example
+## Examples
 
 See:
-```
-examples/example_01_hallucination_block.md
-```
+
+- examples/example_01_hallucination_block.md  
+- examples/example_02_ambiguity_preservation.md  
+- examples/example_03_forced_resolution_rejection.md  
 
 ## Integration
 
