@@ -83,9 +83,9 @@ Even if the interpretation sounds plausible, Kernel Core does not allow plausibi
 ```json
 Kernel Core rejects this judgment because:
 
-A new fact was introduced without evidence
-The claim cannot be traced back to the input
-Certainty was increased beyond what the source allows
+- A new fact was introduced without evidence
+- The claim cannot be traced back to the input
+- Certainty was increased beyond what the source allows
 
 This is not a style error.
 This is a structural validity failure.
