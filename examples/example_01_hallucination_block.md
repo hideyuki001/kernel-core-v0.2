@@ -135,6 +135,8 @@ It enforces a single question:
 
 If not, it does not pass.
 
+In other words, it enforces what is allowed to be said — not what merely appears correct.
+
 ---
 
 ## Related Invariants
