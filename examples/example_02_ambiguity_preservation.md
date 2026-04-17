@@ -34,7 +34,7 @@ Kernel Core must reject this.
     "No disambiguating context is provided"
   ]
 }
-
+```
 ---
 
 ## Invalid Attempted Judgment
