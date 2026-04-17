@@ -62,9 +62,9 @@ The judgment resolves uncertainty by selecting a cause:
 
 However, the input evidence does not specify:
 
-the type of error
-the source of failure
-any technical cause
+- the type of error  
+- the source of failure  
+- any technical cause  
 
 This is therefore a case of forced resolution.
 
@@ -93,9 +93,9 @@ The Kernel rejects the judgment due to invariant violation:
 
 Kernel Core rejects this judgment because:
 
-A specific conclusion was introduced without evidence
-The original uncertainty was not preserved
-The interpretation exceeds the available information
+- A specific conclusion was introduced without evidence  
+- The original uncertainty was not preserved  
+- The interpretation exceeds the available information  
 
 This is not a precision issue.
 This is a structural violation of evidence-bounded judgment.
