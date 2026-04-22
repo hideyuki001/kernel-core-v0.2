@@ -2,22 +2,22 @@
 
 ## Purpose
 
-This example shows how **Kernel Core v0.2** blocks a judgment when the output introduces content that is **not supported by the input evidence**.
+This example demonstrates how **Kernel Core v0.2** prevents a judgment from being accepted when it introduces content **not supported by evidence**.
 
-The goal is not to improve the answer.  
-The goal is to make a structurally invalid judgment **impossible to pass**.
+The goal is not to improve the answer.
+The goal is to make structurally invalid judgment **impossible to pass**.
 
 ---
 
 ## Scenario
 
-A system receives an input where the evidence is incomplete or ambiguous.
+A system receives input with limited or incomplete evidence.
 
-A downstream component attempts to produce a **confident interpretation** that includes details **not present in the source**.
+A downstream component attempts to produce a confident interpretation by introducing details **not present in the source**.
 
 This creates a structural violation.
 
-Kernel Core must reject this.
+Kernel Core rejects this judgment before it can be treated as valid.
 
 ---
 
@@ -36,6 +36,8 @@ Kernel Core must reject this.
 }
 ```
 
+---
+
 ## Invalid Attempted Judgment
 
 The following interpretation introduces a claim not supported by evidence:
@@ -53,6 +55,8 @@ The following interpretation introduces a claim not supported by evidence:
 }
 ```
 
+---
+
 ## Why This Must Be Rejected
 
 The judgment introduces a causal claim that is not grounded in the available evidence:
@@ -61,15 +65,17 @@ The judgment introduces a causal claim that is not grounded in the available evi
 
 However, the input evidence does not mention:
 
-- overheating  
-- temperature  
-- thermal condition  
-- any explicit cause  
+* overheating
+* temperature
+* thermal condition
+* any explicit cause
 
-This is therefore an **unsupported inference**.
+This is an **unsupported inference**.
 
-Even if the interpretation sounds plausible,  
+Even if the interpretation appears plausible,
 Kernel Core does not allow plausibility to replace evidence.
+
+---
 
 ## Kernel Result
 
@@ -83,26 +89,29 @@ The Kernel rejects the judgment due to invariant violation:
     "No unsupported inference",
     "Traceability must be verifiable"
   ],
-  "primary_cause": "hallucination_risk",
+  "primary_cause": "unsupported_inference",
   "downstream_action": "blocked_before_interpretation"
 }
 ```
+
+---
 
 ## Structural Explanation
 
 Kernel Core rejects this judgment because:
 
-- A new fact was introduced without evidence  
-- The claim cannot be traced back to the input  
-- Certainty was increased beyond what the source allows  
+* A new claim was introduced without evidence
+* The claim cannot be traced back to the input
+* Certainty was increased beyond what the source allows
 
-This is not a style error.  
-This is a structural validity failure.
+This is not a stylistic issue.
+It is a structural validity failure.
 
+---
 
 ## What Would Be Acceptable Instead
 
-A structurally valid interpretation would preserve uncertainty:
+A structurally valid interpretation preserves evidence boundaries:
 
 ```json
 {
@@ -120,30 +129,33 @@ A structurally valid interpretation would preserve uncertainty:
   ]
 }
 ```
-This version does not invent a cause.
 
-It remains within the evidence boundary.
+This version:
 
+* does not invent a cause
+* remains within available evidence
+* preserves uncertainty
+
+---
 
 ## Key Takeaway
 
-Kernel Core v0.2 does not evaluate whether an answer is useful, fluent, or likely.
+Kernel Core v0.2 enforces a single rule:
 
-It enforces a single question:
+> A judgment must be licensed by evidence.
 
-> Is this judgment structurally licensed by the evidence?
+If not, it is rejected.
 
-If not, it does not pass.
-
-In other words, it enforces what is allowed to be said — not what merely appears correct.
+This is not a correction mechanism.
+It is a rejection mechanism.
 
 ---
 
 ## Related Invariants
 
-- No unsupported inference  
-- Uncertainty must remain explicit  
-- Traceability must be verifiable  
+* No unsupported inference
+* Uncertainty must remain explicit
+* Traceability must be verifiable
 
 ---
 
@@ -154,7 +166,7 @@ Input
   ↓
 Kernel Core v0.2
   - detects unsupported inference
-  - rejects hallucinated cause
+  - blocks hallucinated content
   ↓
 JudgmentEvent: rejected
   ↓
