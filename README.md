@@ -1,51 +1,68 @@
-Kernel Core v0.2
+# Kernel Core v0.2
 
-This kernel does NOT generate answers.
-It prevents invalid judgments from being produced.
+**This kernel does NOT generate answers.**  
+**It prevents invalid judgments from being produced.**
 
-Overview
+---
+
+## Overview
 
 Kernel Core v0.2 is a structural enforcement layer for AI and annotation judgment systems.
 
-It does not decide what is correct.
+It does not decide what is correct.  
 It ensures that only structurally valid, evidence-bound, and traceable judgments can pass.
 
-Core idea
+---
+
+## Core idea
 
 Most systems try to improve answers.
 
 Kernel Core does something different:
 
-It makes certain classes of invalid judgment structurally impossible.
+> It makes certain classes of invalid judgment structurally impossible.
 
-What it prevents
+---
+
+## What it prevents
 
 Kernel Core blocks:
 
-invented information
-forced resolution under uncertainty
-ambiguity collapse without evidence
-untraceable reasoning
-invalid causal assignment
-What it guarantees
-No hallucination
-Explicit uncertainty preservation
-Exactly one primary cause
-Traceable reasoning
-Strict boundary enforcement
-What it does NOT do
+- invented information  
+- forced resolution under uncertainty  
+- ambiguity collapse without evidence  
+- untraceable reasoning  
+- invalid causal assignment  
 
-Kernel Core does not:
+---
 
-make decisions (STOP / DEFER / ALLOW)
-apply policy
-infer hidden context
-replace downstream systems
+## What it guarantees
 
-Kernel enforces structure.
-Downstream systems govern meaning.
+- **No hallucination**  
+- **Explicit uncertainty preservation**  
+- **Exactly one primary cause**  
+- **Traceable reasoning**  
+- **Strict boundary enforcement**  
 
-Typical flow
+---
+
+## What it does NOT do
+
+Kernel Core does **not**:
+
+- make decisions (STOP / DEFER / ALLOW)  
+- apply policy  
+- infer hidden context  
+- replace downstream systems  
+
+> Kernel enforces structure.  
+> Downstream systems govern meaning.
+
+---
+
+## Typical flow
+
+```text
 Input
   ↓
 Kernel Core v0.2
@@ -63,14 +80,14 @@ They are examples of invalid judgments being structurally blocked.
 
 Minimal examples
 Example 01 — Hallucination Block
-👉 examples/example_01_hallucination_block.md
+examples/example_01_hallucination_block.md
 Example 02 — Ambiguity Preservation
-👉 examples/example_02_ambiguity_preservation.md
+examples/example_02_ambiguity_preservation.md
 Example 03 — Forced Resolution Rejection
-👉 examples/example_03_forced_resolution_rejection.md
+examples/example_03_forced_resolution_rejection.md
 Real execution case
 Example 04 — Real Case: DEFER under Constraint Conflict
-👉 examples/example_04_real_case_defer.md
+examples/example_04_real_case_defer.md
 Key property
 
 If a judgment cannot be structurally justified, it does not pass.
@@ -104,7 +121,7 @@ Integration
 
 See:
 
-👉 integration/with_ucos.md
+integration/with_ucos.md
 
 Recommended stack:
 
