@@ -2,22 +2,22 @@
 
 ## Purpose
 
-This example shows how **Kernel Core v0.2** enforces the preservation of ambiguity when the input evidence does not support a single, definitive interpretation.
+This example demonstrates how **Kernel Core v0.2** enforces the preservation of ambiguity when the input evidence does not support a single definitive interpretation.
 
-The goal is not to resolve uncertainty.  
+The goal is not to resolve uncertainty.
 The goal is to ensure that uncertainty is **explicitly maintained**.
 
 ---
 
 ## Scenario
 
-A system receives an input where multiple interpretations are possible.
+A system receives input where multiple interpretations are valid.
 
 A downstream component attempts to select a single interpretation without sufficient evidence.
 
 This creates a structural violation.
 
-Kernel Core must reject this.
+Kernel Core rejects this judgment before it can be treated as valid.
 
 ---
 
@@ -55,23 +55,25 @@ The following interpretation collapses ambiguity without evidence:
 }
 ```
 
+---
+
 ## Why This Must Be Rejected
 
-This violates evidence-bounded judgment by collapsing valid alternatives.
-
-The judgment selects a single interpretation where multiple interpretations are equally plausible.
+This judgment selects a single interpretation where multiple interpretations are equally supported.
 
 However, the input evidence indicates:
 
-- the sentence is ambiguous  
-- "duck" can function as both a noun and a verb  
-- no context is provided to resolve the ambiguity  
+* the sentence is ambiguous
+* "duck" can function as both a noun and a verb
+* no context is provided to resolve the ambiguity
 
-This is therefore a case of **forced resolution**.
+This is a case of **forced resolution**.
 
-It collapses uncertainty without sufficient evidence.
+It removes uncertainty without evidence.
 
 Kernel Core does not allow ambiguity to be resolved unless it is **strictly evidence-supported**.
+
+---
 
 ## Kernel Result
 
@@ -85,21 +87,25 @@ The Kernel rejects the judgment due to invariant violation:
     "Uncertainty must remain explicit",
     "No unsupported inference"
   ],
-  "primary_cause": "uncertainty_collapse",
+  "primary_cause": "forced_resolution",
   "downstream_action": "blocked_before_interpretation"
 }
 ```
+
+---
 
 ## Structural Explanation
 
 Kernel Core rejects this judgment because:
 
-- Multiple valid interpretations exist  
-- No evidence justifies selecting one interpretation over others  
-- Uncertainty was removed without justification  
+* Multiple valid interpretations exist
+* No evidence justifies selecting one interpretation
+* Uncertainty was removed without justification
 
-This is not a disambiguation error.  
-This is a structural violation of uncertainty preservation.
+This is not a disambiguation error.
+It is a structural violation of uncertainty preservation.
+
+---
 
 ## What Would Be Acceptable Instead
 
@@ -121,28 +127,33 @@ A structurally valid interpretation preserves ambiguity:
   ]
 }
 ```
-This version does not force a single interpretation.
 
-It preserves the structure of uncertainty.
+This version:
+
+* does not force a single interpretation
+* preserves all evidence-supported alternatives
+* maintains explicit uncertainty
+
+---
 
 ## Key Takeaway
 
-Kernel Core v0.2 does not resolve ambiguity by default.
-
-It enforces a single rule:
+Kernel Core v0.2 enforces a single rule:
 
 > If uncertainty cannot be resolved by evidence, it must remain explicit.
 
-In other words, ambiguity is not a problem to fix —  
-it is a condition to preserve.
+Ambiguity is not a problem to fix.
+It is a condition to preserve.
 
-It enforces what is allowed to be concluded — not what appears most likely.
+---
 
 ## Related Invariants
 
-- Uncertainty must remain explicit  
-- No unsupported inference  
-- Traceability must be verifiable
+* Uncertainty must remain explicit
+* No unsupported inference
+* Traceability must be verifiable
+
+---
 
 ## Position in the stack
 
@@ -153,8 +164,7 @@ Kernel Core v0.2
   - detects ambiguity
   - prevents forced resolution
   ↓
-JudgmentEvent: rejected (if collapsed)
+JudgmentEvent: rejected
   ↓
 Downstream system does not proceed
 ```
-
