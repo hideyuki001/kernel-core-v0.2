@@ -76,28 +76,22 @@ Downstream system (e.g. UCOS)
 
 ---
 
-## Examples
+Examples
 
 These are not examples of correct answers.
 
-They are examples of **invalid judgments being structurally blocked**.
+They are examples of invalid judgments being structurally blocked.
 
-### Minimal examples
-
-* **Example 01 — Hallucination Block**
-  → examples/example_01_hallucination_block.md
-
-* **Example 02 — Ambiguity Preservation**
-  → examples/example_02_ambiguity_preservation.md
-
-* **Example 03 — Forced Resolution Rejection**
-  → examples/example_03_forced_resolution_rejection.md
-
-### Real execution case
-
-* **Example 04 — Real Case: DEFER under Constraint Conflict**
-  → examples/example_04_real_case_defer.md
-
+Minimal examples
+Example 01 — Hallucination Block
+examples/example_01_hallucination_block.md
+Example 02 — Ambiguity Preservation
+examples/example_02_ambiguity_preservation.md
+Example 03 — Forced Resolution Rejection
+examples/example_03_forced_resolution_rejection.md
+Real execution case
+Example 04 — Real Case: DEFER under Constraint Conflict
+examples/example_04_real_case_defer.md
 ---
 
 ## Key property
