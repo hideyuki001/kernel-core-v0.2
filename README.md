@@ -12,7 +12,7 @@ Kernel Core v0.2 is a structural enforcement layer for AI and annotation judgmen
 It does not decide what is correct.
 It enforces the minimum structural conditions required for a judgment to remain valid, traceable, and evidence-bound.
 
-This repository contains the core implementation, specifications, tests, and minimal examples for the Kernel layer.
+This repository contains the core implementation, specifications, tests, and examples for the Kernel layer.
 
 ---
 
@@ -72,7 +72,7 @@ In other words:
 
 Without a structural kernel, the same input can produce different judgments depending on:
 
-* annotator style
+* annotator behavior
 * hidden assumptions
 * pressure to complete a task
 * ambiguity being silently collapsed
@@ -80,28 +80,17 @@ Without a structural kernel, the same input can produce different judgments depe
 
 Kernel Core exists to stop these failures before downstream judgment proceeds.
 
-It is especially useful where reproducibility, traceability, and uncertainty preservation matter.
-
 ---
 
 ## What it guarantees
 
-Kernel Core v0.2 is designed to guarantee:
+Kernel Core v0.2 guarantees:
 
 * **No hallucination**
-  Judgment must remain tied to evidence.
-
 * **Explicit uncertainty preservation**
-  Uncertainty cannot be silently converted into certainty.
-
 * **Exactly one primary cause**
-  Causal assignment remains structurally valid.
-
 * **Traceable reasoning**
-  The path from observation to judgment must remain verifiable.
-
 * **Boundary enforcement**
-  Kernel does not become a decision-maker.
 
 These guarantees are enforced deterministically.
 
@@ -115,192 +104,71 @@ Input
 Kernel Core v0.2
   - structural validation
   - invariant enforcement
-  - red flag detection (local only)
   ↓
 JudgmentEvent (validated)
   ↓
 Downstream system (e.g. UCOS)
 ```
 
-A typical downstream stack looks like:
-
-```text
-Kernel Core v0.2  →  UCOS v1.8.1  →  Output / Handoff / Review system
-```
-
----
-
-## Use cases
-
-Kernel Core is suitable for workflows such as:
-
-* ASR quality control
-* translation QA
-* LLM evaluation and annotation
-* human-in-the-loop validation
-* structured review pipelines where uncertainty must not be hidden
-
-It is most useful where:
-
-* multiple annotators may disagree
-* ambiguity must be preserved
-* traceability is required
-* “reasonable-looking” outputs may still be structurally invalid
-
----
-
-## Core invariants
-
-Kernel Core v0.2 enforces the following non-negotiable invariants:
-
-* exactly one primary cause
-* no unsupported inference
-* uncertainty must remain explicit
-* traceability must be verifiable
-* no boundary violation
-
-These are not recommendations.
-They are structural constraints.
-
----
-
-## Repository structure
-
-```text
-examples/
-  example_01_hallucination_block.md
-  example_02_ambiguity_preservation.md
-  example_03_forced_resolution_rejection.md
-  example_04_real_case_defer.md
-
-integration/
-  with_ucos.md
-
-reference_implementation/
-  kernel_core_v02.py
-
-roadmap/
-  v0.3_friction_layer_preview.md
-
-spec/
-  adapter_contract.md
-  judgment_event_schema.md
-  kernel_principles.md
-  red_flag_library.md
-
-tests/
-LICENSE
-README.md
-```
-
 ---
 
 ## Examples
 
-Minimal examples:
+These examples show how invalid judgments are **structurally blocked**.
+
+### Minimal examples
 
 * **Example 01 — Hallucination Block**
-  Prevents unsupported content from passing as valid judgment.
+  https://github.com/hideyuki001/kernel-core-v0.2/blob/main/examples/example_01_hallucination_block.md
 
 * **Example 02 — Ambiguity Preservation**
-  Preserves multiple plausible readings instead of collapsing them.
+  https://github.com/hideyuki001/kernel-core-v0.2/blob/main/examples/example_02_ambiguity_preservation.md
 
 * **Example 03 — Forced Resolution Rejection**
-  Rejects structurally invalid commitment under uncertainty.
+  https://github.com/hideyuki001/kernel-core-v0.2/blob/main/examples/example_03_forced_resolution_rejection.md
 
-Real execution case:
+### Real execution case
 
 * **Example 04 — Real Case: DEFER under Constraint Conflict**
-  A real coding evaluation case where the system preserved incomplete authority and stopped at a structurally honest `DEFER` state.
+  https://github.com/hideyuki001/kernel-core-v0.2/blob/main/examples/example_04_real_case_defer.md
 
-This example is important because it shows Kernel behavior not only in theory, but in an actual evaluation setting.
+This is not a set of correct answers.
+It is a set of invalid judgments being prevented.
 
 ---
 
 ## Real case significance
 
-The real case demonstrates a key property of the Kernel layer:
+The real case demonstrates:
 
-> incomplete judgment should remain visibly incomplete
+> incomplete judgment must remain visibly incomplete
 
-In the example, the evaluation does not “fail.”
-It stops before illegitimate completion.
+The system did not fail.
+It did not guess.
+It did not assume authority.
 
-That distinction matters.
-
-A system that always completes is not necessarily reliable.
-A system that can refuse structurally invalid completion is often safer.
+It stopped.
 
 ---
 
 ## Integration
 
-Kernel Core is designed to be used with downstream semantic governance systems.
-
-See:
-
-* `integration/with_ucos.md`
-
-Recommended relationship:
-
-* **Kernel** = structural enforcement
-* **UCOS** = judgment decomposition and governance
+* UCOS integration:
+  https://github.com/hideyuki001/kernel-core-v0.2/blob/main/integration/with_ucos.md
 
 ---
 
-## Tests
+## Repository
 
-The repository includes tests for core invariants and boundary behavior.
-
-These tests validate areas such as:
-
-* hallucination prevention
-* uncertainty handling
-* assignment integrity
-* traceability enforcement
-* boundary compliance
-* schema integrity
-
-The goal of the test layer is not only correctness, but regression resistance.
+https://github.com/hideyuki001/kernel-core-v0.2
 
 ---
 
 ## Design philosophy
 
-Most AI systems focus on improving outputs.
+Most AI systems try to improve answers.
 
-Kernel Core focuses on something more basic:
-
-> preventing invalid judgments from being produced in the first place
-
-This is especially important in real-world systems where:
-
-* outputs may look fluent but be unjustified
-* confidence may exceed evidence
-* responsibility may be unclear
-* human reviewers may be pressured into forced resolution
-
-Kernel Core is built for those situations.
-
----
-
-## Roadmap
-
-A future `v0.3` friction observation layer is planned.
-
-Its role is not to control the Kernel, but to observe where human judgment becomes unstable.
-
-Preview:
-
-* record `hesitation`
-* record `forced_choice`
-* record `wrong_but_passed`
-* remain read-only
-* surface instability zones for human review
-
-See:
-
-* `roadmap/v0.3_friction_layer_preview.md`
+Kernel Core ensures that invalid judgments **never pass silently**.
 
 ---
 
