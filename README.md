@@ -10,9 +10,7 @@
 Kernel Core v0.2 is a structural enforcement layer for AI and annotation judgment systems.
 
 It does not decide what is correct.
-It enforces the minimum structural conditions required for a judgment to remain valid, traceable, and evidence-bound.
-
-This repository contains the core implementation, specifications, tests, and examples for the Kernel layer.
+It ensures that only structurally valid, evidence-bound, and traceable judgments can pass.
 
 ---
 
@@ -24,79 +22,45 @@ Kernel Core does something different:
 
 > It makes certain classes of invalid judgment structurally impossible.
 
-Its role is to block failure modes such as:
+---
+
+## What it prevents
+
+Kernel Core blocks:
 
 * invented information
 * forced resolution under uncertainty
 * ambiguity collapse without evidence
-* untraceable judgment paths
-* structurally invalid causal assignment
+* untraceable reasoning
+* invalid causal assignment
 
 ---
 
-## What Kernel Core does
+## What it guarantees
 
-Kernel Core v0.2:
-
-* structures observation
-* preserves evidence linkage
-* structures interpretation
-* preserves uncertainty explicitly
-* assigns exactly one primary cause
-* emits traceable `JudgmentEvent` objects
-* detects local red flags
-* enforces traceability as a hard invariant
+* **No hallucination**
+* **Explicit uncertainty preservation**
+* **Exactly one primary cause**
+* **Traceable reasoning**
+* **Strict boundary enforcement**
 
 ---
 
-## What Kernel Core does NOT do
+## What it does NOT do
 
 Kernel Core does **not**:
 
-* make `STOP / DEFER / ALLOW` decisions
-* select repair operators
-* generate handoff packets
-* apply governance logic
+* make decisions (STOP / DEFER / ALLOW)
+* apply policy
 * infer hidden context
-* act as a policy engine
-* replace downstream decision systems
-
-In other words:
+* replace downstream systems
 
 > Kernel enforces structure.
 > Downstream systems govern meaning.
 
 ---
 
-## Why this exists
-
-Without a structural kernel, the same input can produce different judgments depending on:
-
-* annotator behavior
-* hidden assumptions
-* pressure to complete a task
-* ambiguity being silently collapsed
-* unsupported inference passing as “reasonable”
-
-Kernel Core exists to stop these failures before downstream judgment proceeds.
-
----
-
-## What it guarantees
-
-Kernel Core v0.2 guarantees:
-
-* **No hallucination**
-* **Explicit uncertainty preservation**
-* **Exactly one primary cause**
-* **Traceable reasoning**
-* **Boundary enforcement**
-
-These guarantees are enforced deterministically.
-
----
-
-## Typical stack
+## Typical flow
 
 ```text
 Input
@@ -105,7 +69,7 @@ Kernel Core v0.2
   - structural validation
   - invariant enforcement
   ↓
-JudgmentEvent (validated)
+JudgmentEvent
   ↓
 Downstream system (e.g. UCOS)
 ```
@@ -114,61 +78,88 @@ Downstream system (e.g. UCOS)
 
 ## Examples
 
-These examples show how invalid judgments are **structurally blocked**.
+These are not examples of correct answers.
+
+They are examples of **invalid judgments being structurally blocked**.
 
 ### Minimal examples
 
 * **Example 01 — Hallucination Block**
-  https://github.com/hideyuki001/kernel-core-v0.2/blob/main/examples/example_01_hallucination_block.md
+  → examples/example_01_hallucination_block.md
 
 * **Example 02 — Ambiguity Preservation**
-  https://github.com/hideyuki001/kernel-core-v0.2/blob/main/examples/example_02_ambiguity_preservation.md
+  → examples/example_02_ambiguity_preservation.md
 
 * **Example 03 — Forced Resolution Rejection**
-  https://github.com/hideyuki001/kernel-core-v0.2/blob/main/examples/example_03_forced_resolution_rejection.md
+  → examples/example_03_forced_resolution_rejection.md
 
 ### Real execution case
 
 * **Example 04 — Real Case: DEFER under Constraint Conflict**
-  https://github.com/hideyuki001/kernel-core-v0.2/blob/main/examples/example_04_real_case_defer.md
-
-This is not a set of correct answers.
-It is a set of invalid judgments being prevented.
+  → examples/example_04_real_case_defer.md
 
 ---
 
-## Real case significance
+## Key property
+
+> If a judgment cannot be structurally justified, it does not pass.
+
+This system does not try to fix invalid outputs.
+
+It prevents them from being accepted in the first place.
+
+---
+
+## Real case insight
 
 The real case demonstrates:
 
 > incomplete judgment must remain visibly incomplete
 
-The system did not fail.
-It did not guess.
-It did not assume authority.
+The system did not:
+
+* guess
+* assume authority
+* force a decision
 
 It stopped.
 
 ---
 
-## Integration
+## Repository structure
 
-* UCOS integration:
-  https://github.com/hideyuki001/kernel-core-v0.2/blob/main/integration/with_ucos.md
+```text
+examples/
+integration/
+reference_implementation/
+spec/
+tests/
+README.md
+```
 
 ---
 
-## Repository
+## Integration
 
-https://github.com/hideyuki001/kernel-core-v0.2
+See:
+
+* integration/with_ucos.md
+
+Recommended stack:
+
+```text
+Kernel Core v0.2 → UCOS → Output system
+```
 
 ---
 
 ## Design philosophy
 
-Most AI systems try to improve answers.
+Most AI systems optimize for answers.
 
-Kernel Core ensures that invalid judgments **never pass silently**.
+Kernel Core enforces something more fundamental:
+
+> judgment integrity
 
 ---
 
