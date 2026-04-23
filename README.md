@@ -72,6 +72,7 @@ Kernel Core v0.2
 JudgmentEvent
   ↓
 Downstream system (e.g. UCOS)
+```
 
 ## Examples
 
@@ -132,7 +133,7 @@ reference_implementation/
 spec/
 tests/
 README.md
-
+```
 ## Integration
 
 See:
@@ -143,6 +144,7 @@ See:
 
 ```text
 Kernel Core v0.2 → UCOS → Output system
+```
 
 ## Design philosophy
 
