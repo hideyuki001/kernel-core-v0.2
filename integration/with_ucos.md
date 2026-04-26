@@ -20,7 +20,7 @@ Input
 Kernel Core v0.2
   - structural validation
   - trace completeness check
-  - red flag detection
+  - Kernel-level structural red flag detection
   - invalid judgment prevention
   ↓
 JudgmentEvent
