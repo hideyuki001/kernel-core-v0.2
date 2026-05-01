@@ -1,7 +1,7 @@
 # Kernel Core v0.2
 
-**This kernel does NOT generate answers.**  
-**It prevents invalid judgments from being produced.**
+This kernel does NOT generate answers.  
+It prevents invalid judgments from being produced.
 
 ---
 
@@ -20,7 +20,28 @@ Most systems try to improve answers.
 
 Kernel Core does something different:
 
-> It makes certain classes of invalid judgment structurally impossible.
+It makes certain classes of invalid judgment structurally impossible.
+
+This is not an improvement layer.  
+It is a constraint layer.
+
+---
+
+## Failure Without Kernel
+
+Without structural enforcement, systems fail in predictable ways:
+
+- Confident but unsupported outputs pass as valid  
+- Ambiguity is silently collapsed into a single interpretation  
+- Uncertainty is removed instead of preserved  
+- Causal explanations become inconsistent or contradictory  
+- Outputs cannot be traced back to evidence  
+
+These failures are not rare.
+
+They are the default behavior of unconstrained systems.
+
+Kernel Core exists to make these failure modes structurally impossible.
 
 ---
 
@@ -38,31 +59,31 @@ Kernel Core blocks:
 
 ## What it guarantees
 
-- **No hallucination**  
-- **Explicit uncertainty preservation**  
-- **Exactly one primary cause**  
-- **Traceable reasoning**  
-- **Strict boundary enforcement**  
+- No hallucination  
+- Explicit uncertainty preservation  
+- Exactly one primary cause  
+- Traceable reasoning  
+- Strict boundary enforcement  
 
 ---
 
 ## What it does NOT do
 
-Kernel Core does **not**:
+Kernel Core does not:
 
 - make decisions (STOP / DEFER / ALLOW)  
 - apply policy  
 - infer hidden context  
 - replace downstream systems  
 
-> Kernel enforces structure.  
-> Downstream systems govern meaning.
+Kernel enforces structure.  
+Downstream systems govern meaning.
 
 ---
 
 ## Typical flow
 
-```text
+```
 Input
   ↓
 Kernel Core v0.2
@@ -74,33 +95,35 @@ JudgmentEvent
 Downstream system (e.g. UCOS)
 ```
 
+---
+
 ## Examples
 
 These are not examples of correct answers.
 
-They are examples of **invalid judgments being structurally blocked**.
+They are examples of invalid judgments being structurally blocked.
 
 ### Minimal examples
 
-- **Example 01 — Hallucination Block**  
-  [examples/example_01_hallucination_block.md](./examples/example_01_hallucination_block.md)
+- Example 01 — Hallucination Block  
+  examples/example_01_hallucination_block.md  
 
-- **Example 02 — Ambiguity Preservation**  
-  [examples/example_02_ambiguity_preservation.md](./examples/example_02_ambiguity_preservation.md)
+- Example 02 — Ambiguity Preservation  
+  examples/example_02_ambiguity_preservation.md  
 
-- **Example 03 — Forced Resolution Rejection**  
-  [examples/example_03_forced_resolution_rejection.md](./examples/example_03_forced_resolution_rejection.md)
+- Example 03 — Forced Resolution Rejection  
+  examples/example_03_forced_resolution_rejection.md  
 
 ### Real execution case
 
-- **Example 04 — Real Case: DEFER under Constraint Conflict**  
-  [examples/example_04_real_case_defer.md](./examples/example_04_real_case_defer.md)
+- Example 04 — Real Case: DEFER under Constraint Conflict  
+  examples/example_04_real_case_defer.md  
 
 ---
 
 ## Key property
 
-> If a judgment cannot be structurally justified, it does not pass.
+If a judgment cannot be structurally justified, it does not pass.
 
 This system does not try to fix invalid outputs.
 
@@ -126,7 +149,7 @@ It stopped.
 
 ## Repository structure
 
-```text
+```
 examples/
 integration/
 reference_implementation/
@@ -134,17 +157,20 @@ spec/
 tests/
 README.md
 ```
+
+---
+
 ## Integration
 
 See:
 
-- [integration/with_ucos.md](./integration/with_ucos.md)
+integration/with_ucos.md
 
 ### Recommended stack
 
-```text
 Kernel Core v0.2 → UCOS → Output system
-```
+
+---
 
 ## Design philosophy
 
@@ -152,7 +178,7 @@ Most AI systems optimize for answers.
 
 Kernel Core enforces something more fundamental:
 
-> judgment integrity
+**judgment integrity**
 
 ---
 
